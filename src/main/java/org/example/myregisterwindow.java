@@ -1,6 +1,8 @@
 package org.example;
+import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
 public class myregisterwindow {
     public JFrame frame;
     public JPanel panel1;
@@ -8,10 +10,12 @@ public class myregisterwindow {
     public JPanel panel3;
     public JPanel panel4;
     public JPanel panel5;
+    public JPanel panelp;
     public JLabel label1;
     public JLabel label2;
     public JLabel label3;
     public JLabel label4;
+    public JLabel labelp;
     public JTextField input1;
     public JTextField input2;
     public JTextField input3;
@@ -69,11 +73,19 @@ public class myregisterwindow {
         button1.addActionListener(listener);
         panel5.add(button1);
         frame.add(panel5);
+        ImageIcon bg = new ImageIcon("src/main/resources/background.jpg");
+        labelp = new JLabel(bg);
+        labelp.setSize(bg.getIconWidth(), bg.getIconHeight());
+        frame.getLayeredPane().add(labelp, new Integer(Integer.MIN_VALUE));
+        panelp = (JPanel) frame.getContentPane();
+        panelp.setOpaque(false);
+        panelp.setLayout(new FlowLayout());
         frame.addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e){
                 System.exit(0);
             }
         });
+
     }
     class BtnCountListener implements ActionListener{
         @Override

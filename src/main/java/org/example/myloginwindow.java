@@ -1,4 +1,5 @@
 package org.example;
+import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 public class myloginwindow {
@@ -7,8 +8,10 @@ public class myloginwindow {
     public JPanel panel2;
     public JPanel panel3;
     public JPanel panel4;
+    public JPanel panelp;
     public JLabel label1;
     public JLabel label2;
+    public JLabel labelp;
     public JTextField input1;
     public JTextField input2;
     public JButton button1;
@@ -58,6 +61,13 @@ public class myloginwindow {
         button3.addActionListener(listener1);
         panel4.add(button3);
         frame.add(panel4);
+        ImageIcon bg = new ImageIcon("src/main/resources/background2.jpg");
+        labelp = new JLabel(bg);
+        labelp.setSize(bg.getIconWidth(), bg.getIconHeight());
+        frame.getLayeredPane().add(labelp, new Integer(Integer.MIN_VALUE));
+        panelp = (JPanel)frame.getContentPane();
+        panelp.setOpaque(false);
+        panelp.setLayout(new FlowLayout());
         frame.addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e){
                 System.exit(0);
