@@ -1,6 +1,10 @@
 package org.example;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.*;
 public class myloginwindow {
     public JFrame frame;
@@ -17,13 +21,16 @@ public class myloginwindow {
     public JButton button1;
     public JButton button2;
     public JButton button3;
-    String username;
-    String password;
+    public static String username;
+    public static String password;
+    public static String url = "jdbc:mysql://localhost:3306/user_info";
+    public static String user = "root";
+    public static String pass = "547471wjs";
+    public static Connection con;
     public myloginwindow()
     {
         frame = new JFrame("Welcome to MyMovie! Please Log In");
         frame.setLayout(null);
-        frame.setSize(500, 800);
         frame.setVisible(true);
         panel1 = new JPanel();
         panel1.setSize(500, 200);
@@ -49,7 +56,7 @@ public class myloginwindow {
         button1 = new JButton("Manager Login");
         BtnCountListener listener1 = new BtnCountListener();
         button1.addActionListener(listener1);
-        button2 = new JButton("Client Login");
+        button2 = new JButton("User Login");
         button2.addActionListener(listener1);
         panel3.add(button1);
         panel3.add(button2);
@@ -64,6 +71,7 @@ public class myloginwindow {
         ImageIcon bg = new ImageIcon("src/main/resources/background2.jpg");
         labelp = new JLabel(bg);
         labelp.setSize(bg.getIconWidth(), bg.getIconHeight());
+        frame.setSize(bg.getIconWidth(),bg.getIconHeight());
         frame.getLayeredPane().add(labelp, new Integer(Integer.MIN_VALUE));
         panelp = (JPanel)frame.getContentPane();
         panelp.setOpaque(false);
@@ -84,6 +92,36 @@ public class myloginwindow {
             String buttonname = e.getActionCommand();
             if (buttonname.equals("Register")){
                 myregisterwindow app2 = new myregisterwindow();
+            }
+            else{
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection(url, user, pass);
+                if (buttonname.equals("Manager Login")){
+                    String sql = "select username,password from manager_info where username=? and password=?";
+                    PreparedStatement ptmt = con.prepareStatement(sql);
+                    ptmt.setString(1,username);
+                    ptmt.setString(2,password);
+                    ResultSet rs = ptmt.executeQuery();
+                    if (rs.next()){
+                        JOptionPane.showConfirmDialog(null,"Manager Login Success!");
+                    }
+                    else {
+                        JOptionPane.showConfirmDialog(null, "Username/Password incorrect! Please try again!");
+                    }
+                }
+                else{
+                    String sql = "select username,password from user_info where username=? and password=?";
+                    PreparedStatement ptmt = con.prepareStatement(sql);
+                    ptmt.setString(1,username);
+                    ptmt.setString(2, password);
+                    ResultSet rs = ptmt.executeQuery();
+                    if (rs.next()){
+                        JOptionPane.showConfirmDialog(null, "User Login Success!");
+                    }
+                    else{
+                        JOptionPane.showConfirmDialog(null, "Username/Password incorrect! Please try again!";
+                    }
+                }
             }
         }
     }

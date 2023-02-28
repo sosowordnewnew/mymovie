@@ -1,6 +1,9 @@
 package org.example;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.swing.*;
 
 public class myregisterwindow {
@@ -21,10 +24,16 @@ public class myregisterwindow {
     public JTextField input3;
     public JTextField input4;
     public JButton button1;
-    String username;
-    String password1;
-    String password2;
-    String email;
+    public JButton button2;
+    public static String username;
+    public static String password1;
+    public static String password2;
+    public static String email;
+    public static String url = "jdbc:mysql://localhost:3306/user_info";
+    public static String user = "root";
+    public static String pass = "547471wjs";
+    public static Connection con;
+
     public myregisterwindow(){
         frame = new JFrame("Welcome! New Client!");
         frame.setSize(500, 1200);
@@ -68,14 +77,18 @@ public class myregisterwindow {
         panel5 = new JPanel();
         panel5.setSize(500, 200);
         panel5.setLocation(0, 800);
-        button1 = new JButton("Register");
+        button1 = new JButton("Manager Register");
         BtnCountListener listener = new BtnCountListener();
         button1.addActionListener(listener);
+        button2 = new JButton("User Register");
+        button2.addActionListener(listener);
         panel5.add(button1);
+        panel5.add(button2);
         frame.add(panel5);
         ImageIcon bg = new ImageIcon("src/main/resources/background.jpg");
         labelp = new JLabel(bg);
         labelp.setSize(bg.getIconWidth(), bg.getIconHeight());
+        frame.setSize(bg.getIconWidth(),bg.getIconHeight());
         frame.getLayeredPane().add(labelp, new Integer(Integer.MIN_VALUE));
         panelp = (JPanel) frame.getContentPane();
         panelp.setOpaque(false);
@@ -104,7 +117,25 @@ public class myregisterwindow {
                 JOptionPane.showConfirmDialog(null, "Email Address Incorrect");
             }
             else{
-                JOptionPane.showConfirmDialog(null, "Register Success!");
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection(url, user, pass);
+                String buttonname = e.getActionCommand();
+                if (buttonname.equals("Manager Register")){
+                    String sql = "insert into manager_info (username,password) values(?,?)";
+                    PreparedStatement ptmt = con.prepareStatement(sql);
+                    ptmt.setString(1,username);
+                    ptmt.setString(2,password1);
+                    ptmt.execute();
+                    JOptionPane.showConfirmDialog(null, "Manager Register Success!");
+                }
+                else{
+                    String sql = "insert into user_info (username, password1) values(?,?)";
+                    PreparedStatement ptmt = con.prepareStatement(sql);
+                    ptmt.setString(1,username);
+                    ptmt.setString(2, password1);
+                    ptmt.execute();
+                    JOptionPane.showConfirmDialog(null, "User Register Success!");
+                }
             }
         }
     }
