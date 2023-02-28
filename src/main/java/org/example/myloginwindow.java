@@ -119,7 +119,7 @@ public class myloginwindow {
                         JOptionPane.showConfirmDialog(null, "User Login Success!");
                     }
                     else{
-                        JOptionPane.showConfirmDialog(null, "Username/Password incorrect! Please try again!";
+                        JOptionPane.showConfirmDialog(null, "Username/Password incorrect! Please try again!");
                     }
                 }
             }
