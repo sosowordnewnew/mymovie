@@ -102,7 +102,7 @@ public class myregisterwindow {
     }
     class BtnCountListener implements ActionListener{
         @Override
-        public void actionPerformed(ActionEvent e){
+        public void actionPerformed(ActionEvent e) {
             username = input1.getText();
             password1 = input2.getText();
             password2 = input3.getText();
@@ -117,24 +117,24 @@ public class myregisterwindow {
                 JOptionPane.showConfirmDialog(null, "Email Address Incorrect");
             }
             else{
-                Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection(url, user, pass);
                 String buttonname = e.getActionCommand();
+                System.out.println(buttonname);
                 if (buttonname.equals("Manager Register")){
-                    String sql = "insert into manager_info (username,password) values(?,?)";
-                    PreparedStatement ptmt = con.prepareStatement(sql);
-                    ptmt.setString(1,username);
-                    ptmt.setString(2,password1);
-                    ptmt.execute();
-                    JOptionPane.showConfirmDialog(null, "Manager Register Success!");
+                    try {
+                        managerregister mr = new managerregister(username, password1);
+                        System.out.println("get in!");
+                        JOptionPane.showConfirmDialog(null, "Register Success! You can Log in Now!");
+                    }catch(Exception f){
+                        System.out.println(f);
+                    }
                 }
                 else{
-                    String sql = "insert into user_info (username, password1) values(?,?)";
-                    PreparedStatement ptmt = con.prepareStatement(sql);
-                    ptmt.setString(1,username);
-                    ptmt.setString(2, password1);
-                    ptmt.execute();
-                    JOptionPane.showConfirmDialog(null, "User Register Success!");
+                    try {
+                        userregister ur = new userregister(username, password1);
+                        JOptionPane.showConfirmDialog(null, "Register Success! You can Log in Now!");
+                    }catch(Exception f){
+                        System.out.println(f);
+                    }
                 }
             }
         }

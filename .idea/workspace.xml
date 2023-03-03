@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3da39723-6224-447c-9c59-d65de00ee550" name="变更" comment="I'm fking coming!!!">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/managerlogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/managerregister.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/userlogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/userregister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ImageDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Login.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/myloginwindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/myloginwindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/myregisterwindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/myregisterwindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677570057342</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="I'm fking coming!!!">
+      <created>1677574361064</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677574361064</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">

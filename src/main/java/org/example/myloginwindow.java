@@ -1,10 +1,7 @@
 package org.example;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import javax.swing.*;
 public class myloginwindow {
     public JFrame frame;
@@ -23,10 +20,7 @@ public class myloginwindow {
     public JButton button3;
     public static String username;
     public static String password;
-    public static String url = "jdbc:mysql://localhost:3306/user_info";
-    public static String user = "root";
-    public static String pass = "547471wjs";
-    public static Connection con;
+
     public myloginwindow()
     {
         frame = new JFrame("Welcome to MyMovie! Please Log In");
@@ -94,34 +88,33 @@ public class myloginwindow {
                 myregisterwindow app2 = new myregisterwindow();
             }
             else{
-                Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection(url, user, pass);
-                if (buttonname.equals("Manager Login")){
-                    String sql = "select username,password from manager_info where username=? and password=?";
-                    PreparedStatement ptmt = con.prepareStatement(sql);
-                    ptmt.setString(1,username);
-                    ptmt.setString(2,password);
-                    ResultSet rs = ptmt.executeQuery();
-                    if (rs.next()){
-                        JOptionPane.showConfirmDialog(null,"Manager Login Success!");
+                    if(username.isEmpty()||password.isEmpty()){
+                        JOptionPane.showConfirmDialog(null, "Information Incomplete! Please try again!");
                     }
-                    else {
-                        JOptionPane.showConfirmDialog(null, "Username/Password incorrect! Please try again!");
+                    else if (buttonname.equals("Manager Login")){
+                        try {
+                            managerlogin ml = new managerlogin(username, password);
+                            if (!ml.check()) {
+                                JOptionPane.showConfirmDialog(null, "Username/Password Incorrect! Please Try Again!");
+                            } else {
+                                JOptionPane.showConfirmDialog(null, "Login Success!");
+                            }
+                        }catch(Exception f){
+                            System.out.println(f);
+                        }
                     }
-                }
-                else{
-                    String sql = "select username,password from user_info where username=? and password=?";
-                    PreparedStatement ptmt = con.prepareStatement(sql);
-                    ptmt.setString(1,username);
-                    ptmt.setString(2, password);
-                    ResultSet rs = ptmt.executeQuery();
-                    if (rs.next()){
-                        JOptionPane.showConfirmDialog(null, "User Login Success!");
+                    else if (buttonname.equals("User Login")) {
+                        try {
+                            userlogin ul = new userlogin(username, password);
+                            if (!ul.check()) {
+                                JOptionPane.showConfirmDialog(null, "Username/Password Incorrect! Please Try Again!");
+                            } else {
+                                JOptionPane.showConfirmDialog(null, "Login Success!");
+                            }
+                        }catch(Exception f){
+                            System.out.println(f);
+                        }
                     }
-                    else{
-                        JOptionPane.showConfirmDialog(null, "Username/Password incorrect! Please try again!");
-                    }
-                }
             }
         }
     }
