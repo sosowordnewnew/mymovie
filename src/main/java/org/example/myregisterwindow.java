@@ -36,7 +36,6 @@ public class myregisterwindow {
 
     public myregisterwindow(){
         frame = new JFrame("Welcome! New Client!");
-        frame.setSize(500, 1200);
         frame.setVisible(true);
         panel1 = new JPanel();
         panel1.setSize(500, 200);
@@ -93,11 +92,7 @@ public class myregisterwindow {
         panelp = (JPanel) frame.getContentPane();
         panelp.setOpaque(false);
         panelp.setLayout(new FlowLayout());
-        frame.addWindowListener(new WindowAdapter(){
-            public void windowClosing(WindowEvent e){
-                System.exit(0);
-            }
-        });
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
     class BtnCountListener implements ActionListener{
@@ -118,10 +113,9 @@ public class myregisterwindow {
             }
             else{
                 String buttonname = e.getActionCommand();
-                System.out.println(buttonname);
                 if (buttonname.equals("Manager Register")){
                     try {
-                        managerregister mr = new managerregister(username, password1);
+                        managerregister mr = new managerregister(username, password1, email);
                         System.out.println("get in!");
                         JOptionPane.showConfirmDialog(null, "Register Success! You can Log in Now!");
                     }catch(Exception f){
@@ -130,7 +124,7 @@ public class myregisterwindow {
                 }
                 else{
                     try {
-                        userregister ur = new userregister(username, password1);
+                        userregister ur = new userregister(username, password1, email);
                         JOptionPane.showConfirmDialog(null, "Register Success! You can Log in Now!");
                     }catch(Exception f){
                         System.out.println(f);
