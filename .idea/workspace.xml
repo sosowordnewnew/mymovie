@@ -9,19 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3da39723-6224-447c-9c59-d65de00ee550" name="变更" comment="I'm fking coming!!!">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/mymovie_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/mymovie_jar2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/comments.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/detailinformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ratingupdate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/userfrontface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/yourcomments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managerregister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/managerregister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/myregisterwindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/myregisterwindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/userregister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/userregister.java" afterDir="false" />
-    </list>
+    <list default="true" id="3da39723-6224-447c-9c59-d65de00ee550" name="变更" comment="I'm fking coming!!!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677814063160</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="I'm fking coming!!!">
+      <created>1678453166272</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678453166272</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="UnknownFeatures">
