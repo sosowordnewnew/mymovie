@@ -42,12 +42,11 @@ public class detailinformation {
             ratings = rs.getString("ratings");
             peoples = rs.getString("people");
         }
-        frame = new JFrame();
+        frame = new JFrame(moviename);
         panel1 = new JPanel();
         panel1.setLocation(0, 0);
         panel2 = new JPanel();
         panel2.setLocation(0, 100);
-        frame.setTitle(moviename);
         frame.setBounds(300, 200, 500, 900);
         frame.setVisible(true);
         label1 = new JLabel(moviename);

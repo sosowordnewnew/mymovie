@@ -12,7 +12,7 @@ public class userfrontface {
     public Connection con;
 
     public userfrontface() throws Exception {
-        frame = new JFrame();
+        frame = new JFrame("Movie List");
         label = new JLabel("Movie Names");
         frame.add(label);
         Class.forName("com.mysql.cj.jdbc.Driver");

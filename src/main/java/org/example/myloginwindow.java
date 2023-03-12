@@ -97,7 +97,7 @@ public class myloginwindow {
                             if (!ml.check()) {
                                 JOptionPane.showConfirmDialog(null, "Username/Password Incorrect! Please Try Again!");
                             } else {
-                                JOptionPane.showConfirmDialog(null, "Login Success!");
+                                managerfrontface mf = new managerfrontface();
                             }
                         }catch(Exception f){
                             System.out.println(f);
@@ -109,7 +109,7 @@ public class myloginwindow {
                             if (!ul.check()) {
                                 JOptionPane.showConfirmDialog(null, "Username/Password Incorrect! Please Try Again!");
                             } else {
-                                JOptionPane.showConfirmDialog(null, "Login Success!");
+                                userfrontface uf = new userfrontface();
                             }
                         }catch(Exception f){
                             System.out.println(f);

@@ -9,7 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3da39723-6224-447c-9c59-d65de00ee550" name="变更" comment="I'm fking coming!!!" />
+    <list default="true" id="3da39723-6224-447c-9c59-d65de00ee550" name="变更" comment="I'm fking coming!!!">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/addmovies.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/deletemovies.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/managerfrontface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/detailinformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/detailinformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/myloginwindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/myloginwindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/userfrontface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/userfrontface.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678453166272</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="I'm fking coming!!!">
+      <created>1678522125386</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678522125386</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnknownFeatures">
