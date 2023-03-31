@@ -1,96 +1,92 @@
 package org.example;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class DemoFrame extends JFrame{
+public class DemoFrame{
 
-    JPanel panel1;
-    JPanel panel2;
-    JPanel panel3;
-    JPanel panel4;
-    JPanel panel5;
-    JPanel panel6;
-
-    JLabel label1;
-    JLabel label2;
-    JTextArea description;
-    JLabel label3;
-    String input;
-    JLabel label4;
-    JCheckBox box1;
-    JCheckBox box2;
-    JCheckBox box3;
-    JCheckBox box4;
-    JCheckBox box5;
-    public DemoFrame(){
+    public JFrame frame;
+    public JLabel label1;
+    public JLabel label2;
+    public JLabel label3;
+    public JLabel label4;
+    public JTextField name;
+    public String movienames;
+    public String descriptions;
+    public String comments;
+    public String ratings;
+    public JTextArea description;
+    public JCheckBox box1;
+    public JCheckBox box2;
+    public JCheckBox box3;
+    public JCheckBox box4;
+    public JCheckBox box5;
+    public JTextArea comment;
+    public JButton button;
+    public JPanel panel1;
+    public JPanel panel2;
+    public JPanel panel3;
+    public JPanel panel4;
+    public JPanel panel5;
+    public DemoFrame() throws Exception{
+        frame = new JFrame("complete information");
+        frame.setLayout(null);
+        frame.setSize( 700, 1000);
+        frame.setVisible(true);
         panel1 = new JPanel();
+        panel1.setLocation(0,0);
+        panel1.setSize(700,100);
+        label1=  new JLabel("Movie Name:");
+        name = new JTextField(movienames,  30);
+        name.setEditable(true);
+        panel1.add(label1);
+        panel1.add(name);
+        frame.add(panel1);
         panel2 = new JPanel();
-        JSplitPane sp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, panel1, panel2);
-        setBounds(300, 200, 500, 600);
-        add(sp);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
-        sp.setDividerLocation(0.33);
-        label1 = new JLabel("Movie names");
-        label2 = new JLabel("Detailed Information");
-        description = new JTextArea(input, 5, 30);
+        panel2.setLocation(0,100);
+        panel2.setSize(700,200);
+        label2 = new JLabel("Description:");
+        description = new JTextArea(descriptions, 5, 30);
+        description.setEditable(true);
         description.setLineWrap(true);
         description.setWrapStyleWord(true);
-        label3 = new JLabel("Ratings: 3.9/5.0");
-        label4 = new JLabel("Your Rating:");
-        panel1.add(label1);
-        label2.setLocation(250, 0);
-        description.setLocation(200, 100);
-        label3.setLocation(250, 400);
-        label4.setLocation(250, 600);
         panel2.add(label2);
         panel2.add(description);
-        panel2.add(label3);
-        panel2.add(label4);
-        ActionListener actionlistener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (box1.isSelected()){
-                    JOptionPane.showConfirmDialog(null, "呜呜呜！为啥要给差评！");
-                }
-                else if(box2.isSelected()){
-                    JOptionPane.showConfirmDialog(null, "好低的分。。。能说一哈哪里不满意吗？");
-                }
-                else if (box3.isSelected()){
-                    JOptionPane.showConfirmDialog(null, "您是懂中规中矩的。。。");
-                }
-                else if (box4.isSelected()){
-                    JOptionPane.showConfirmDialog(null, "感谢评价！欢迎下次光临！");
-                }
-                else{
-                    JOptionPane.showConfirmDialog(null, "哇！五星好评！您晚上可以预约嗦牛牛哟！");
-                }
-            }
-        };
+        frame.add(panel2);
+        panel3 = new JPanel();
+        panel3.setSize(700,100);
+        panel3.setLocation(0,300);
+        label3 = new JLabel("Your Rating:");
         box1 = new JCheckBox("1");
         box2 = new JCheckBox("2");
         box3 = new JCheckBox("3");
         box4 = new JCheckBox("4");
         box5 = new JCheckBox("5");
-        box1.addActionListener(actionlistener);
-        box2.addActionListener(actionlistener);
-        box3.addActionListener(actionlistener);
-        box4.addActionListener(actionlistener);
-        box5.addActionListener(actionlistener);
-        box1.setLocation(200, 600);
-        box2.setLocation(220, 600);
-        box3.setLocation(240, 600);
-        box4.setLocation(260, 600);
-        box5.setLocation(280, 600);
-        panel2.add(box1);
-        panel2.add(box2);
-        panel2.add(box3);
-        panel2.add(box4);
-        panel2.add(box5);
+        panel3.add(label3);
+        panel3.add(box1);
+        panel3.add(box2);
+        panel3.add(box3);
+        panel3.add(box4);
+        panel3.add(box5);
+        frame.add(panel3);
+        panel4 = new JPanel();
+        panel4.setLocation(0,400);
+        panel4.setSize(700,200);
+        label4 = new JLabel("Your Comments:");
+        comment = new JTextArea(comments,5,30);
+        comment.setEditable(true);
+        comment.setLineWrap(true);
+        comment.setWrapStyleWord(true);
+        panel4.add(label4);
+        panel4.add(comment);
+        frame.add(panel4);
+        panel5 = new JPanel();
+        panel5.setLocation(0,600);
+        panel5.setSize(700,100);
+        button = new JButton("Add");
+        panel5.add(button);
+        frame.add(panel5);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
-    public static void main (String[] args){
-        new DemoFrame();
+    public static void main(String[] args) throws Exception{
+        DemoFrame df = new DemoFrame();
     }
 }

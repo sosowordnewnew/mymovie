@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.*;
 public class comments {
-    public String url = "java:mysql://localhost:3306/mymovie";
+    public String url = "jdbc:mysql://localhost:3306/mymovie";
     public String user = "root";
     public String pass = "547471wjs";
     public Connection con;
@@ -23,26 +23,37 @@ public class comments {
         while(rs.next()){
              comments = rs.getString("comment");
         }
-        comment = comments.split(" ");
+        comment = comments.split(".");
         frame = new JFrame("Comments");
         frame.setVisible(true);
         frame.setBounds(300,200,500,900);
+        JPanel[] panels = new JPanel[comment.length];
+        JLabel[] labels = new JLabel[comment.length];
         for (int i = 0; i<comment.length; i++){
-            JLabel label = new JLabel(comment[i]);
-            JPanel panel = new JPanel();
-            panel.setLocation(0,i*100);
-            panel.add(label);
-            frame.add(panel);
+            labels[i] = new JLabel(comment[i]);
+            panels[i] = new JPanel();
+            panels[i].setLocation(0,i*100);
+            panels[i].setSize(500,100);
+            panels[i].add(labels[i]);
+            frame.add(panels[i]);
         }
         panelc = new JPanel();
+        panelc.setSize(500,100);
         panelc.setLocation(0,800);
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                yourcomments yc = new yourcomments(moviename);
+                try {
+                    String btname = e.getActionCommand();
+                    if (btname.equals("Leave Your Comments")) {
+                        yourcomments ycm = new yourcomments(moviename);
+                    }
+                } catch (Exception f) {
+                    System.out.println(f);
+                }
             }
         };
-        JButton button = new JButton("Leave Your Comments");
+        button = new JButton("Leave Your Comments");
         button.addActionListener(listener);
         panelc.add(button);
         frame.add(panelc);

@@ -70,11 +70,7 @@ public class myloginwindow {
         panelp = (JPanel)frame.getContentPane();
         panelp.setOpaque(false);
         panelp.setLayout(new FlowLayout());
-        frame.addWindowListener(new WindowAdapter(){
-            public void windowClosing(WindowEvent e){
-                System.exit(0);
-            }
-        });
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     class BtnCountListener implements ActionListener
     {

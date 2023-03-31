@@ -6,7 +6,7 @@ import javax.swing.*;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
 public class addmovies {
-    public String url = "java:mysql://localhost:3306/mymovie";
+    public String url = "jdbc:mysql://localhost:3306/mymovie";
     public String user = "root";
     public String pass = "547471wjs";
     public Connection con;
@@ -35,11 +35,12 @@ public class addmovies {
         String sql2 = "insert into comments (moviename,comment) values(?,?)";
         PreparedStatement ptmt1 = con.prepareStatement(sql1);
         PreparedStatement ptmt2 = con.prepareStatement(sql2);
-        frame = new JFrame("Complete Information");
+        frame = new JFrame("complete information");
+        frame.setBounds(300, 200, 700, 1000);
         frame.setVisible(true);
-        frame.setBounds(300,200,500,1000);
         JPanel panel1 = new JPanel();
         panel1.setLocation(0,0);
+        panel1.setSize(700,100);
         label1=  new JLabel("Movie Name:");
         name = new JTextField(movienames,  30);
         name.setEditable(true);
@@ -48,6 +49,7 @@ public class addmovies {
         frame.add(panel1);
         JPanel panel2 = new JPanel();
         panel2.setLocation(0,100);
+        panel2.setSize(700,200);
         label2 = new JLabel("Description:");
         description = new JTextArea(descriptions, 5, 30);
         description.setEditable(true);
@@ -57,7 +59,8 @@ public class addmovies {
         panel2.add(description);
         frame.add(panel2);
         JPanel panel3=  new JPanel();
-        panel3.setLocation(0, 500);
+        panel3.setLocation(0, 300);
+        panel3.setSize(700,100);
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -80,6 +83,7 @@ public class addmovies {
                         ptmt2.setString(1, movienames);
                         ptmt2.setString(2, comments);
                         ptmt2.execute();
+                        JOptionPane.showConfirmDialog(null,"Adding Successful!");
                     }catch(Exception f){
                         System.out.println(f);
                     }
@@ -105,14 +109,16 @@ public class addmovies {
         panel3.add(box5);
         frame.add(panel3);
         JPanel panel4 = new JPanel();
-        panel4.setLocation(0, 600);
+        panel4.setLocation(0, 400);
+        panel4.setSize(700,200);
         label4 = new JLabel("Comments:");
         comment = new JTextArea(comments, 5, 30);
         panel4.add(label4);
         panel4.add(comment);
         frame.add(panel4);
         JPanel panel5 = new JPanel();
-        panel5.setLocation(0,900);
+        panel5.setLocation(0,600);
+        panel5.setSize(700,100);
         button = new JButton("Add");
         button.addActionListener(listener);
         panel5.add(button);

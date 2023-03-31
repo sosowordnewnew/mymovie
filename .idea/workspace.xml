@@ -10,13 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3da39723-6224-447c-9c59-d65de00ee550" name="变更" comment="I'm fking coming!!!">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/addmovies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/deletemovies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/managerfrontface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/userinformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DemoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DemoFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/addmovies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/addmovies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/comments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/comments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/deletemovies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/deletemovies.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/detailinformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/detailinformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managerfrontface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/managerfrontface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/myloginwindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/myloginwindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/myregisterwindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/myregisterwindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ratingupdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ratingupdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/userfrontface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/userfrontface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/userregister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/userregister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/yourcomments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/yourcomments.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +67,8 @@
     &quot;last_opened_file_path&quot;: &quot;D:/桌面文件&quot;,
     &quot;project.structure.last.edited&quot;: &quot;工件&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
@@ -134,7 +143,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678522125386</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="I'm fking coming!!!">
+      <created>1678620760022</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678620760022</updated>
+    </task>
+    <task id="LOCAL-00011" summary="I'm fking coming!!!">
+      <created>1680246933788</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680246933788</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">

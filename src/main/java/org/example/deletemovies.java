@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.*;
 public class deletemovies {
-    public String url = "java:mysql://localhost:3306/mymovie";
+    public String url = "jdbc:mysql://localhost:3306/mymovie";
     public String user = "root";
     public String pass = "547471wjs";
     public Connection con;
@@ -27,16 +27,23 @@ public class deletemovies {
                 try{
                     ptmt2.setString(1, moviename);
                     ptmt2.execute();
+                    JOptionPane.showConfirmDialog(null,"Delete Success!");
                 }catch(Exception f){
                     System.out.println(f);
                 }
             }
         };
+        JButton[] buttons = new JButton[20];
+        JPanel[] panels = new JPanel[20];
         while(rs1.next()){
             String moviename = rs1.getString("movienames");
-            JButton button = new JButton(moviename);
-            button.addActionListener(listener);
-            frame.add(button);
+            buttons[rs1.getRow()] = new JButton(moviename);
+            buttons[rs1.getRow()].addActionListener(listener);
+            panels[rs1.getRow()] = new JPanel();
+            panels[rs1.getRow()].setSize(500,100);
+            panels[rs1.getRow()].setLocation(0,100*(rs1.getRow()-1));
+            panels[rs1.getRow()].add(buttons[rs1.getRow()]);
+            frame.add(panels[rs1.getRow()]);
         }
     }
 }

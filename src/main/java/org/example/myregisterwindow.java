@@ -92,8 +92,7 @@ public class myregisterwindow {
         panelp = (JPanel) frame.getContentPane();
         panelp.setOpaque(false);
         panelp.setLayout(new FlowLayout());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     class BtnCountListener implements ActionListener{
         @Override
