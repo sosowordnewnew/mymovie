@@ -10,13 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3da39723-6224-447c-9c59-d65de00ee550" name="变更" comment="I'm fking coming!!!">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/addmovies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/deletemovies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/managerfrontface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/movieratings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/moviesdata.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/detailinformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/detailinformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/myloginwindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/myloginwindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/userfrontface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/userfrontface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managerfrontface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/managerfrontface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +23,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>

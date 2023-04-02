@@ -1,9 +1,15 @@
 package org.example;
+import javafx.application.Application;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.*;
-public class managerfrontface {
+
+import static javafx.application.Application.launch;
+
+
+public class managerfrontface{
     public String url = "jdbc:mysql://localhost:3306/mymovie";
     public String user = "root";
     public String pass = "547471wjs";
@@ -12,6 +18,7 @@ public class managerfrontface {
     public JButton button1;
     public JButton button2;
     public JButton button3;
+    public JButton button4;
     public JPanel panelm;
     public JPanel panelo;
     public managerfrontface() throws Exception{
@@ -36,6 +43,9 @@ public class managerfrontface {
                     }
                     else if(moviename.equals("Users Information")){
                         userinformation ui = new userinformation();
+                    }
+                    else if(moviename.equals("Movies Data")){
+                        moviesdata md = new moviesdata();
                     }
                     else {
                         detailinformation di = new detailinformation(moviename);
@@ -72,7 +82,10 @@ public class managerfrontface {
         panelo.setLocation(0,600);
         button3 = new JButton("Users Information");
         button3.addActionListener(listener);
+        button4 = new JButton("Movies Data");
+        button4.addActionListener(listener);
         panelo.add(button3);
+        panelo.add(button4);
         frame.add(panelo);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
