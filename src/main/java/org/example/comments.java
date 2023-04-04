@@ -23,7 +23,7 @@ public class comments {
         while(rs.next()){
              comments = rs.getString("comment");
         }
-        comment = comments.split(".");
+        comment = comments.split("@");
         frame = new JFrame("Comments");
         frame.setVisible(true);
         frame.setBounds(300,200,500,900);
@@ -57,6 +57,5 @@ public class comments {
         button.addActionListener(listener);
         panelc.add(button);
         frame.add(panelc);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }

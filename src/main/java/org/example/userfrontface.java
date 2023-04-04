@@ -50,6 +50,5 @@ public class userfrontface {
             panels[rs.getRow()].add(buttons[rs.getRow()]);
             frame.add(panels[rs.getRow()]);
         }
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }

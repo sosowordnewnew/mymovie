@@ -10,6 +10,8 @@ public class yourcomments {
     public Connection con;
     public JFrame frame;
     public JTextArea comments;
+    public JPanel panel1;
+    public JPanel panel2;
     public JButton button;
     public String oc;
     public String fc;
@@ -17,11 +19,16 @@ public class yourcomments {
     public yourcomments(String moviename) throws Exception{
         frame = new JFrame("Your Comments");
         frame.setBounds(300,200,500,700);
+        frame.setVisible(true);
+        panel1 = new JPanel();
+        panel1.setSize(500,300);
+        panel1.setLocation(0,0);
         comments = new JTextArea(yc, 5,40);
         comments.setEditable(true);
         comments.setLineWrap(true);
         comments.setWrapStyleWord(true);
-        frame.add(comments);
+        panel1.add(comments);
+        frame.add(panel1);
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection(url, user, pass);
         String sql = "update comments set comment=? where moviename=?";
@@ -37,11 +44,12 @@ public class yourcomments {
                     while (rs2.next()){
                         oc = rs2.getString("comment");
                     }
-                    fc = oc+"."+yc;
+                    fc = oc+"@"+yc;
                     PreparedStatement ptmt = con.prepareStatement(sql);
                     ptmt.setString(1, fc);
                     ptmt.setString(2, moviename);
                     ptmt.execute();
+                    JOptionPane.showConfirmDialog(null,"Comment Success!");
                 } catch(Exception f){
                     System.out.println(f);
                 }
@@ -49,7 +57,11 @@ public class yourcomments {
         };
         button = new JButton("Add Comments");
         button.addActionListener(listener);
-        frame.add(button);
+        panel2 = new JPanel();
+        panel2.setLocation(0,300);
+        panel2.setSize(0,200);
+        panel2.add(button);
+        frame.add(panel2);
     }
 }
 

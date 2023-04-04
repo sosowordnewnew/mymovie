@@ -87,6 +87,5 @@ public class managerfrontface{
         panelo.add(button3);
         panelo.add(button4);
         frame.add(panelo);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }

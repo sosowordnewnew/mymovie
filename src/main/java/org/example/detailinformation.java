@@ -153,6 +153,5 @@ public class detailinformation {
         button.addActionListener(listener);
         panel6.add(button);
         frame.add(panel6);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }
