@@ -7,6 +7,8 @@ public class userfrontface {
     public JFrame frame;
     public JLabel label;
     public JPanel panel;
+    public JPanel panelb;
+    public JButton button;
     public String url = "jdbc:mysql://localhost:3306/mymovie";
     public String user = "root";
     public String pass = "547471wjs";
@@ -32,7 +34,11 @@ public class userfrontface {
             public void actionPerformed(ActionEvent e) {
                 String moviename = e.getActionCommand();
                 try {
-                    detailinformation movie = new detailinformation(moviename);
+                    if (moviename.equals("Movie Recommendation")){
+                        movierecommend mr = new movierecommend();
+                    }
+                    else{
+                    detailinformation movie = new detailinformation(moviename);}
                 } catch (Exception f) {
                     System.out.println(f);
                 }
@@ -46,7 +52,7 @@ public class userfrontface {
         buttons[0] = new JButton(rs.getString("movienames"));
         buttons[0].addActionListener(listener);
         panels[0] = new JPanel();
-        panels[0].setLocation(0,0);
+        panels[0].setLocation(0,100);
         panels[0].setSize(500,100);
         panels[0].add(buttons[0]);
         frame.add(panels[0]);
@@ -56,10 +62,17 @@ public class userfrontface {
             buttons[i] = new JButton(name);
             buttons[i].addActionListener(listener);
             panels[i]=  new JPanel();
-            panels[i].setLocation(0,100*i);
+            panels[i].setLocation(0,100*(i+1));
             panels[i].setSize(500,100);
             panels[i].add(buttons[i]);
             frame.add(panels[i]);
         }
+        panelb = new JPanel();
+        panelb.setLocation(0,600);
+        panelb.setSize(500,100);
+        button = new JButton("Movie Recommendation");
+        button.addActionListener(listener);
+        panelb.add(button);
+        frame.add(panelb);
     }
 }

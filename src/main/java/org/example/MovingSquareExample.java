@@ -4,21 +4,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 public class MovingSquareExample {
-    public static final JPanel square = new JPanel();
-    public static int x = 20;
-
-    public static void createAndShowGUI(){
+    public static JLabel image;
+    public static int x = 0;
+    public static int y = 500;
+    public static JPanel panel;
+    public void createAndShowGUI(){
         JFrame frame = new JFrame();
-        frame.getContentPane().setLayout(null);
-        frame.setSize(500,500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        frame.add(square);
-        square.setBounds(20,200,100,100);
-        square.setBackground(Color.BLUE);
-
-        Timer timer = new Timer(1000/60,new MyActionListener());
-        timer.start();
+        ImageIcon bg = new ImageIcon("src/main/java/resources/bg3.jpg");
+        frame.setSize(bg.getIconWidth(),bg.getIconHeight());
+        image = new JLabel(bg);
+        image.setSize(bg.getIconWidth(),bg.getIconHeight());
+        frame.getLayeredPane().add(image,new Integer(Integer.MIN_VALUE));
+        panel = (JPanel)frame.getContentPane();
+        panel.setOpaque(false);
+        panel.setLayout(new FlowLayout());
         frame.setVisible(true);
     }
 
@@ -26,21 +26,13 @@ public class MovingSquareExample {
 
         @Override
         public void actionPerformed(ActionEvent arg0) {
-            square.setLocation(x++, 200);
-
+            if ((x>500)||(y<0)) {
+                x = 0;
+                y = 500;
+            }
+            else image.setLocation(x++,y--);
         }
 
     }
 
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable(){
-            @Override
-            public void run(){
-                createAndShowGUI();
-
-            }
-        });
-
-
-    }
 }

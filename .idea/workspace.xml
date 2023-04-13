@@ -10,14 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3da39723-6224-447c-9c59-d65de00ee550" name="变更" comment="I'm fking coming!!!">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/movierecommend.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/deletemovies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/deletemovies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/democharts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/managerfrontface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/managerfrontface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/movieratings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/moviesdata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/moviesdata.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MovingSquareExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MovingSquareExample.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/userfrontface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/userfrontface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/userinformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/userinformation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +132,10 @@
       <workItem from="1681113937823" duration="2727000" />
       <workItem from="1681294642282" duration="10307000" />
       <workItem from="1681371443190" duration="171000" />
+      <workItem from="1681373687263" duration="718000" />
+      <workItem from="1681374424437" duration="2973000" />
+      <workItem from="1681377429909" duration="1118000" />
+      <workItem from="1681387090235" duration="6111000" />
     </task>
     <task id="LOCAL-00001" summary="finish part of the work.">
       <created>1677139567687</created>
@@ -221,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680778507445</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="I'm fking coming!!!">
+      <created>1681373698949</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681373698949</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
