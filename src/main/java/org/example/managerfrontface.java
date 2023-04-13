@@ -25,8 +25,8 @@ public class managerfrontface{
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection(url,user,pass);
         String sql = "select movienames from movies";
-        PreparedStatement ptmt = con.prepareStatement(sql);
-        ResultSet rs = ptmt.executeQuery();
+        Statement ptmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        ResultSet rs = ptmt.executeQuery(sql);
         frame = new JFrame("Current Movies");
         frame.setVisible(true);
         frame.setBounds(300, 200, 500, 900);
@@ -55,17 +55,29 @@ public class managerfrontface{
                 }
             }
         };
-        JPanel[] panels = new JPanel[20];
-        JButton[] buttons = new JButton[20];
+        rs.last();
+        int rows = rs.getRow();
+        JPanel[] panels = new JPanel[rows];
+        JButton[] buttons = new JButton[rows];
+        rs.first();
+        buttons[0] = new JButton(rs.getString("movienames"));
+        buttons[0].addActionListener(listener);
+        panels[0] = new JPanel();
+        panels[0].setLocation(0,0);
+        panels[0].setSize(500,100);
+        panels[0].add(buttons[0]);
+        frame.add(panels[0]);
+        int i = 1;
         while(rs.next()){
             String moviename = rs.getString("movienames");
-            buttons[rs.getRow()] = new JButton(moviename);
-            buttons[rs.getRow()].addActionListener(listener);
-            panels[rs.getRow()] = new JPanel();
-            panels[rs.getRow()].setLocation(0,100*(rs.getRow()-1));
-            panels[rs.getRow()].setSize(500,100);
-            panels[rs.getRow()].add(buttons[rs.getRow()]);
-            frame.add(panels[rs.getRow()]);
+            buttons[i] = new JButton(moviename);
+            buttons[i].addActionListener(listener);
+            panels[i] = new JPanel();
+            panels[i].setLocation(0,100*i);
+            panels[i].setSize(500,100);
+            panels[i].add(buttons[i]);
+            frame.add(panels[i]);
+            i++;
         }
         panelm = new JPanel();
         panelm.setLocation(0, 500);

@@ -33,17 +33,29 @@ public class deletemovies {
                 }
             }
         };
-        JButton[] buttons = new JButton[20];
-        JPanel[] panels = new JPanel[20];
+        rs1.last();
+        int rows = rs1.getRow();
+        JButton[] buttons = new JButton[rows];
+        JPanel[] panels = new JPanel[rows];
+        rs1.first();
+        buttons[0] = new JButton("movienames");
+        buttons[0].addActionListener(listener);
+        panels[0] = new JPanel();
+        panels[0].setSize(500,100);
+        panels[0].setLocation(0,0);
+        panels[0].add(buttons[0]);
+        frame.add(panels[0]);
+        int i = 1;
         while(rs1.next()){
             String moviename = rs1.getString("movienames");
-            buttons[rs1.getRow()] = new JButton(moviename);
-            buttons[rs1.getRow()].addActionListener(listener);
-            panels[rs1.getRow()] = new JPanel();
-            panels[rs1.getRow()].setSize(500,100);
-            panels[rs1.getRow()].setLocation(0,100*(rs1.getRow()-1));
-            panels[rs1.getRow()].add(buttons[rs1.getRow()]);
-            frame.add(panels[rs1.getRow()]);
+            buttons[i] = new JButton(moviename);
+            buttons[i].addActionListener(listener);
+            panels[i] = new JPanel();
+            panels[i].setSize(500,100);
+            panels[i].setLocation(0,100*i);
+            panels[i].add(buttons[i]);
+            frame.add(panels[i]);
+            i++;
         }
     }
 }

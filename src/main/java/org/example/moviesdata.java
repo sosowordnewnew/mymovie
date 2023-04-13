@@ -11,42 +11,36 @@ public class moviesdata {
     public String pass = "547471wjs";
     public Connection con;
     public JFrame frame;
-    public JButton button;
-    public JPanel panel;
+    public JTable table;
     public moviesdata() throws Exception{
         frame = new JFrame();
         frame.setBounds(300,200,500,700);
         frame.setVisible(true);
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection(url,user,pass);
-        String sql = "select movienames,description from movies";
-        PreparedStatement ptmt = con.prepareStatement(sql);
-        ResultSet rs = ptmt.executeQuery();
-        JPanel[] panels = new JPanel[20];
-        JLabel[] labels = new JLabel[20];
+        String sql = "select movienames,description,ratings from movies";
+        Statement ptmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        ResultSet rs = ptmt.executeQuery(sql);
+        rs.last();
+        int rows = rs.getRow();
+        String[][] contents = new String[rows][3];
+        String[] columnname= {"Moviename","Movietype","Rating"};
+        int i = 1;
+        rs.first();
+        contents[0][0] = rs.getString("movienames");
+        contents[0][1] = rs.getString("description");
+        contents[0][2] = rs.getString("ratings");
         while(rs.next()){
             String moviename = rs.getString("movienames");
             String description = rs.getString("description");
-            labels[rs.getRow()] = new JLabel(moviename+"    "+description);
-            panels[rs.getRow()]=  new JPanel();
-            panels[rs.getRow()].setSize(500,100);
-            panels[rs.getRow()].setLocation(0,100*(rs.getRow()-1));
-            panels[rs.getRow()].add(labels[rs.getRow()]);
-            frame.add(panels[rs.getRow()]);
+            String ratings = rs.getString("ratings");
+            contents[i][0] = moviename;
+            contents[i][1] = description;
+            contents[i][2] = ratings;
+            i++;
         }
-        ActionListener listener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                movieratings mr = new movieratings();
-            }
-        };
-        button = new JButton("See Movie Ratings");
-        button.addActionListener(listener);
-        panel = new JPanel();
-        panel.setLocation(0,600);
-        panel.setSize(500,100);
-        panel.add(button);
-        frame.add(panel);
+        table = new JTable(contents,columnname);
+        frame.add(table);
     }
 
 }
