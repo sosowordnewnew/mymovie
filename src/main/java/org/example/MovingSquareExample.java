@@ -3,36 +3,43 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.util.*;
+import java.util.Timer;
+
 public class MovingSquareExample {
-    public static JLabel image;
-    public static int x = 0;
-    public static int y = 500;
-    public static JPanel panel;
-    public void createAndShowGUI(){
+    public JLabel image;
+    public int x = 0;
+    public int y = 500;
+    public JPanel panel;
+    private static Timer timer;
+    public MovingSquareExample(){
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ImageIcon bg = new ImageIcon("src/main/java/resources/bg3.jpg");
-        frame.setSize(bg.getIconWidth(),bg.getIconHeight());
+        ImageIcon bg = new ImageIcon("src/main/resources/bg3.jpg");
+        frame.setSize(500,700);
         image = new JLabel(bg);
-        image.setSize(bg.getIconWidth(),bg.getIconHeight());
-        frame.getLayeredPane().add(image,new Integer(Integer.MIN_VALUE));
-        panel = (JPanel)frame.getContentPane();
+        image.setSize(200,200);
+        frame.getLayeredPane().add(image, 0);
+        panel = (JPanel) frame.getContentPane();
+        image.setLocation(x,y);
         panel.setOpaque(false);
-        panel.setLayout(new FlowLayout());
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if ((x<500)&&(y>0)){
+                x = x+10;
+                y = y-10;
+                image.setLocation(x,y);}
+                else {
+                    x = 0;
+                    y = 500;
+                }
+            }
+        },0,100);
         frame.setVisible(true);
     }
-
-     static class MyActionListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent arg0) {
-            if ((x>500)||(y<0)) {
-                x = 0;
-                y = 500;
-            }
-            else image.setLocation(x++,y--);
-        }
-
+    public static void main(String[] args){
+        MovingSquareExample mse = new MovingSquareExample();
     }
-
 }

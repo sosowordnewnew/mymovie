@@ -3,6 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.*;
+import java.util.*;
+import java.util.Timer;
+
 public class detailinformation {
     public JFrame frame;
     public JPanel panel1;
@@ -25,6 +28,10 @@ public class detailinformation {
     public JCheckBox box5;
     public String description;
     public String ratings;
+    public JLabel labelp;
+    public JPanel panelp;
+    public int x = 0;
+    public int y = 0;
     public String peoples;
     public String url = "jdbc:mysql://localhost:3306/mymovie";
     public String user = "root";
@@ -153,5 +160,28 @@ public class detailinformation {
         button.addActionListener(listener);
         panel6.add(button);
         frame.add(panel6);
+        ImageIcon bg = new ImageIcon("src/main/resources/bg4.jpg");
+        labelp = new JLabel(bg);
+        labelp.setSize(200,200);
+        labelp.setLocation(x,y);
+        frame.getLayeredPane().add(labelp, Integer.MIN_VALUE);
+        panelp = (JPanel) frame.getContentPane();
+        panelp.setOpaque(false);
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if((x<500)&&(y<900)){
+                    x = x+10;
+                    y = y+20;
+                    labelp.setLocation(x,y);
+                }
+                else{
+                    x = 0;
+                    y = 0;
+                    labelp.setLocation(x,y);
+                }
+            }
+        },0,100);
     }
 }
