@@ -27,15 +27,16 @@ public class movierecommend {
             String movietype = rs.getString("description");
             double rating = Double.parseDouble(rs.getString("ratings"));
             int people = Integer.parseInt(rs.getString("people"));
-            int typerate = 0;
-            if (movietype.equals("Scientific Movie")) typerate = 3;
-            else if (movietype.equals("Action Movie")) typerate = 3;
-            else if (movietype.equals("Comedy")) typerate = 2;
-            else if (movietype.equals("Superhero Movie")) typerate = 2;
-            else if (movietype.equals("Crime Movie")) typerate = 2;
-            else if (movietype.equals("Patriotic Movie")) typerate = 2;
-            else if (movietype.equals("Documentary")) typerate = 2;
-            else typerate = 1;
+            int typerate = switch (movietype){
+                case "Scientific Movie" -> 3;
+                case "Action Movie" -> 3;
+                case "Comedy" -> 2;
+                case "Superhero Movie" -> 2;
+                case "Crime Movie" -> 2;
+                case "Patriotic Movie" -> 2;
+                case "Documentary" -> 2;
+                default -> 1;
+            };
             double rates = typerate*0.3+rating*0.5+people*0.2;
             if (rates>maxrate) {
                 maxrate = rates;

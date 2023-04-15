@@ -13,21 +13,29 @@ public class myregisterwindow {
     public JPanel panel3;
     public JPanel panel4;
     public JPanel panel5;
+    public JPanel panel6;
+    public JPanel panel7;
     public JPanel panelp;
     public JLabel label1;
     public JLabel label2;
     public JLabel label3;
     public JLabel label4;
+    public JLabel label5;
+    public JLabel label6;
     public JLabel labelp;
     public JTextField input1;
     public JTextField input2;
     public JTextField input3;
     public JTextField input4;
+    public JTextField input5;
+    public JTextField input6;
     public JButton button1;
     public JButton button2;
     public static String username;
     public static String password1;
     public static String password2;
+    public static String age;
+    public static String gender;
     public static String email;
     public static String url = "jdbc:mysql://localhost:3306/user_info";
     public static String user = "root";
@@ -73,6 +81,24 @@ public class myregisterwindow {
         panel4.add(label4);
         panel4.add(input4);
         frame.add(panel4);
+        panel6 = new JPanel();
+        panel6.setSize(500,200);
+        panel6.setLocation(0,800);
+        label5 = new JLabel("Gender:");
+        input5 = new JTextField(gender,10);
+        input5.setEditable(true);
+        panel6.add(label5);
+        panel6.add(input5);
+        frame.add(panel6);
+        panel7 = new JPanel();
+        panel7.setSize(500,200);
+        panel7.setLocation(0,1000);
+        label6 = new JLabel("Age:");
+        input6 = new JTextField(age, 10);
+        input6.setEditable(true);
+        panel7.add(label6);
+        panel7.add(input6);
+        frame.add(panel7);
         panel5 = new JPanel();
         panel5.setSize(500, 200);
         panel5.setLocation(0, 800);
@@ -100,7 +126,9 @@ public class myregisterwindow {
             password1 = input2.getText();
             password2 = input3.getText();
             email = input4.getText();
-            if (username.isEmpty()||password1.isEmpty()||password2.isEmpty()||email.isEmpty()){
+            gender = input5.getText();
+            age = input6.getText();
+            if (username.isEmpty()||password1.isEmpty()||password2.isEmpty()||email.isEmpty()||gender.isEmpty()||age.isEmpty()){
                 JOptionPane.showConfirmDialog(null, "Information Incomplete!");
             }
             else if (!password1.equals(password2)){
@@ -113,7 +141,7 @@ public class myregisterwindow {
                 String buttonname = e.getActionCommand();
                 if (buttonname.equals("Manager Register")){
                     try {
-                        managerregister mr = new managerregister(username, password1, email);
+                        managerregister mr = new managerregister(username, password1, email, gender, age);
                         System.out.println("get in!");
                         JOptionPane.showConfirmDialog(null, "Register Success! You can Log in Now!");
                     }catch(Exception f){
@@ -122,7 +150,7 @@ public class myregisterwindow {
                 }
                 else{
                     try {
-                        userregister ur = new userregister(username, password1, email);
+                        userregister ur = new userregister(username, password1, email, gender, age);
                         JOptionPane.showConfirmDialog(null, "Register Success! You can Log in Now!");
                     }catch(Exception f){
                         System.out.println(f);
