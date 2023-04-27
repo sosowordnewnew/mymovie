@@ -36,7 +36,7 @@ public class addmovies {
         PreparedStatement ptmt1 = con.prepareStatement(sql1);
         PreparedStatement ptmt2 = con.prepareStatement(sql2);
         frame = new JFrame("complete information");
-        frame.setBounds(300, 200, 700, 1000);
+        frame.setBounds(0, 0, 1400, 700);
         frame.setVisible(true);
         JPanel panel1 = new JPanel();
         panel1.setLocation(0,0);

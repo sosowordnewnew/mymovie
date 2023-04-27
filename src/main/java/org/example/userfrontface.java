@@ -23,7 +23,7 @@ public class userfrontface {
 
     public userfrontface() throws Exception {
         frame = new JFrame("Movie List");
-        frame.setBounds(300,200,500,700);
+        frame.setBounds(0,0,1400,700);
         frame.setVisible(true);
         panel = new JPanel();
         panel.setSize(500,100);
@@ -91,9 +91,9 @@ public class userfrontface {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if ((x<500)&&(y<700)){
-                    x = x+10;
-                    y = y+20;
+                if ((x<1400)&&(y<700)){
+                    x = x+20;
+                    y = y+10;
                     labelp.setLocation(x,y);
                 } else{
                     x = 0;

@@ -1,6 +1,11 @@
 package org.example;
 import java.sql.*;
 import javax.swing.*;
+
+import static org.example.userlogin.ugender;
+import static org.example.userlogin.uname;
+import static org.example.userlogin.uage;
+
 public class movierecommend {
     public static String url = "jdbc:mysql://localhost:3306/mymovie";
     public static String user = "root";
@@ -27,16 +32,7 @@ public class movierecommend {
             String movietype = rs.getString("description");
             double rating = Double.parseDouble(rs.getString("ratings"));
             int people = Integer.parseInt(rs.getString("people"));
-            int typerate = switch (movietype){
-                case "Scientific Movie" -> 3;
-                case "Action Movie" -> 3;
-                case "Comedy" -> 2;
-                case "Superhero Movie" -> 2;
-                case "Crime Movie" -> 2;
-                case "Patriotic Movie" -> 2;
-                case "Documentary" -> 2;
-                default -> 1;
-            };
+            int typerate = getrate(ugender, uage, movietype);
             double rates = typerate*0.3+rating*0.5+people*0.2;
             if (rates>maxrate) {
                 maxrate = rates;
@@ -45,7 +41,7 @@ public class movierecommend {
             }
         }
         frame = new JFrame("Movie Recommendation");
-        frame.setBounds(300,200,500,500);
+        frame.setBounds(0,0,1400,400);
         frame.setVisible(true);
         label1 = new JLabel("The Recommended Movie is:");
         panel1 = new JPanel();
@@ -68,5 +64,73 @@ public class movierecommend {
         panel3.setLocation(0,400);
         panel3.add(label3);
         frame.add(panel3);
+    }
+    public int getrate(String gender, String ages, String movietype) {
+        int rate = 0;
+        int age = Integer.parseInt(ages);
+        if (gender.equals("male")) {
+            if (age <= 30) {
+                rate = switch (movietype) {
+                    case "Scientific Movie" -> 3;
+                    case "Action Movie" -> 3;
+                    case "Comedy" -> 2;
+                    case "Superhero Movie" -> 2;
+                    case "Crime Movie" -> 2;
+                    case "Patriotic Movie" -> 2;
+                    case "Documentary" -> 2;
+                    default -> 1;
+                };
+            } else if (age <= 60) {
+                rate = switch (movietype) {
+                    case "Comedy" -> 3;
+                    case "Inspirational Movie" -> 3;
+                    case "Documentary" -> 2;
+                    case "Love Movie" -> 2;
+                    case "Historical Movie" -> 2;
+                    default -> 1;
+                };
+            } else {
+                rate = switch (movietype) {
+                    case "Comedy" -> 3;
+                    case "Documentary" -> 3;
+                    case "Historical Movie" -> 3;
+                    case "Inspirational Movie" -> 2;
+                    case "Love Movie" -> 2;
+                    case "Patriotic Movie" -> 2;
+                    default -> 1;
+                };
+            }
+        } else {
+            if (age <= 30) {
+                rate = switch (movietype) {
+                    case "Love Movie" -> 3;
+                    case "Inspirational Movie" -> 3;
+                    case "Comedy" -> 2;
+                    case "Anime Movie" -> 2;
+                    case "Horror Movie" -> 2;
+                    default -> 1;
+                };
+            } else if (age <= 60) {
+                rate = switch (movietype) {
+                    case "Comedy" -> 3;
+                    case "Inspirational Movie" -> 3;
+                    case "Documentary" -> 2;
+                    case "Love Movie" -> 2;
+                    case "Historical Movie" -> 2;
+                    default -> 1;
+                };
+            } else {
+                rate = switch (movietype) {
+                    case "Comedy" -> 3;
+                    case "Documentary" -> 3;
+                    case "Historical Movie" -> 3;
+                    case "Inspirational Movie" -> 2;
+                    case "Love Movie" -> 2;
+                    case "Patriotic Movie" -> 2;
+                    default -> 1;
+                };
+            }
+        }
+        return rate;
     }
 }

@@ -26,7 +26,7 @@ public class deletemovies {
         PreparedStatement ptmt2 = con.prepareStatement(sql2);
         frame = new JFrame("Delete Movies");
         frame.setVisible(true);
-        frame.setBounds(300, 200, 500, 700);
+        frame.setBounds(0, 0, 1400, 700);
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,9 +74,9 @@ public class deletemovies {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if ((x<500)&&(y<700)){
-                    x = x+10;
-                    y = y+20;
+                if ((x<1400)&&(y<700)){
+                    x = x+20;
+                    y = y+10;
                     labelp.setLocation(x,y);
                 } else{
                     x = 0;

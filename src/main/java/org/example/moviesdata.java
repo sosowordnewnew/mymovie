@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.util.*;
 import java.util.Timer;
 
+import static org.example.userlogin.uname;
+import static org.example.userlogin.ugender;
 public class moviesdata {
     public String url = "jdbc:mysql://localhost:3306/mymovie";
     public String user = "root";
@@ -73,6 +75,8 @@ public class moviesdata {
                 }
             }
         },0,100);
+        System.out.println(uname);
+        System.out.println(ugender);
     }
 
 }

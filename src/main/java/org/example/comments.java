@@ -1,4 +1,6 @@
 package org.example;
+import javafx.stage.Stage;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -16,6 +18,8 @@ public class comments {
     public JFrame frame;
     public JPanel panelc;
     public JButton button;
+    public JButton button2;
+    public JButton button3;
     public JLabel labelp;
     public JPanel panelp;
     public int x = 0;
@@ -33,7 +37,7 @@ public class comments {
         comment = comments.split("@");
         frame = new JFrame("Comments");
         frame.setVisible(true);
-        frame.setBounds(300,200,500,900);
+        frame.setBounds(0,0,1400,700);
         JPanel[] panels = new JPanel[comment.length];
         JLabel[] labels = new JLabel[comment.length];
         for (int i = 0; i<comment.length; i++){
@@ -50,19 +54,29 @@ public class comments {
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    String btname = e.getActionCommand();
-                    if (btname.equals("Leave Your Comments")) {
-                        yourcomments ycm = new yourcomments(moviename);
+                String buttonname = e.getActionCommand();
+                if (buttonname.equals("Leave Your Comments")){
+                    try {
+                            yourcomments ycm = new yourcomments(moviename);
+                    } catch (Exception f) {
+                        System.out.println(f);
                     }
-                } catch (Exception f) {
-                    System.out.println(f);
+                }
+                else if(buttonname.equals("See Picture Comments")){
+                    try {
+                        picturecomments pc = new picturecomments(moviename);
+                    } catch (Exception f){
+                        System.out.print(f);
+                    }
                 }
             }
         };
         button = new JButton("Leave Your Comments");
         button.addActionListener(listener);
+        button2 = new JButton("See Picture Comments");
+        button2.addActionListener(listener);
         panelc.add(button);
+        panelc.add(button2);
         frame.add(panelc);
         ImageIcon bg = new ImageIcon("src/main/resources/bg5.jpg");
         labelp = new JLabel(bg);
@@ -74,9 +88,9 @@ public class comments {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if ((x<500)&&(y<900)){
-                    x = x+10;
-                    y = y+20;
+                if ((x<1400)&&(y<700)){
+                    x = x+20;
+                    y = y+10;
                     labelp.setLocation(x,y);
                 } else{
                     x = 0;

@@ -36,7 +36,7 @@ public class managerfrontface{
         ResultSet rs = ptmt.executeQuery(sql);
         frame = new JFrame("Current Movies");
         frame.setVisible(true);
-        frame.setBounds(300, 200, 500, 900);
+        frame.setBounds(0, 0, 1400, 700);
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -117,9 +117,9 @@ public class managerfrontface{
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if ((x<500)&&(y<900)){
-                    x = x+10;
-                    y = y+20;
+                if ((x<1400)&&(y<700)){
+                    x = x+20;
+                    y = y+10;
                     labelp.setLocation(x,y);
                 }
                 else{

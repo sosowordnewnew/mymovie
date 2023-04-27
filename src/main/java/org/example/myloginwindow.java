@@ -10,6 +10,7 @@ public class myloginwindow {
     public JPanel panel3;
     public JPanel panel4;
     public JPanel panelp;
+    public JPanel panelb;
     public JLabel label1;
     public JLabel label2;
     public JLabel labelp;
@@ -18,6 +19,7 @@ public class myloginwindow {
     public JButton button1;
     public JButton button2;
     public JButton button3;
+    public JButton button4;
     public static String username;
     public static String password;
 
@@ -70,6 +72,13 @@ public class myloginwindow {
         panelp = (JPanel)frame.getContentPane();
         panelp.setOpaque(false);
         panelp.setLayout(new FlowLayout());
+        panelb = new JPanel();
+        panelb.setLocation(0,800);
+        panelb.setSize(500,200);
+        button4 = new JButton("Forget Password");
+        button4.addActionListener(listener1);
+        panelb.add(button4);
+        frame.add(panelb);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     class BtnCountListener implements ActionListener
@@ -82,6 +91,13 @@ public class myloginwindow {
             String buttonname = e.getActionCommand();
             if (buttonname.equals("Register")){
                 myregisterwindow app2 = new myregisterwindow();
+            }
+            else if (buttonname.equals("Forget Password")){
+                try{
+                    findpassword fp = new findpassword();
+                } catch(Exception f){
+                    System.out.println(f);
+                }
             }
             else{
                     if(username.isEmpty()||password.isEmpty()){
