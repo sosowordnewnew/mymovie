@@ -42,8 +42,8 @@ public class yourcomments {
         String sql2 = "select comment from comments where moviename=?";
         String sql3 = "update comments set pictures=? where moviename=?";
         String sql4 = "select pictures from comments where moviename=?";
-        String sql5 = "update comments set videos=? where moviename=?";
-        String sql6 = "select videos from comments where moviename=?";
+        String sql5 = "update movies set posters=? where movienames=?";
+        String sql6 = "select posters from movies where movienames=?";
         PreparedStatement ptmt2 = con.prepareStatement(sql2);
         ptmt2.setString(1,moviename);
         ResultSet rs2 = ptmt2.executeQuery();
@@ -95,6 +95,26 @@ public class yourcomments {
                       System.out.print(f);
                   }
               }
+              else {
+                  String posterpath = comments.getText();
+                  try{
+                      PreparedStatement ptmt = con.prepareStatement(sql6);
+                      ptmt.setString(1,moviename);
+                      ResultSet rs = ptmt.executeQuery();
+                      String fposterpath = "";
+                      while(rs.next()){
+                          fposterpath = rs.getString("posters");
+                      }
+                      String eposterpath = fposterpath+"@"+posterpath;
+                      PreparedStatement ptmt2 = con.prepareStatement(sql5);
+                      ptmt2.setString(1, eposterpath);
+                      ptmt2.setString(2, moviename);
+                      ptmt2.executeUpdate();
+                      JOptionPane.showMessageDialog(frame, "upload success!");
+                  } catch(Exception f){
+                      System.out.println(f);
+                  }
+              }
               }
         };
         button = new JButton("Add Comments");
@@ -112,7 +132,10 @@ public class yourcomments {
         panel3.setLocation(0,500);
         button3 = new JButton("Pictures Uploading");
         button3.addActionListener(listener);
+        button4 = new JButton("Posters Uploading");
+        button4.addActionListener(listener);
         panel3.add(button3);
+        panel3.add(button4);
         frame.add(panel3);
     }
 }

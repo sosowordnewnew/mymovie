@@ -69,14 +69,24 @@ public class comments {
                         System.out.print(f);
                     }
                 }
+                else{
+                    try{
+                        movieposters mp = new movieposters(moviename);
+                    } catch(Exception f){
+                        System.out.println(f);
+                    }
+                }
             }
         };
         button = new JButton("Leave Your Comments");
         button.addActionListener(listener);
         button2 = new JButton("See Picture Comments");
         button2.addActionListener(listener);
+        button3 = new JButton("See Movie Posters");
+        button3.addActionListener(listener);
         panelc.add(button);
         panelc.add(button2);
+        panelc.add(button3);
         frame.add(panelc);
         ImageIcon bg = new ImageIcon("src/main/resources/bg5.jpg");
         labelp = new JLabel(bg);
