@@ -11,6 +11,7 @@ public class ratingupdate {
         String sql = "update movies set ratings=?, people=? where movienames=?";
         PreparedStatement ptmt = con.prepareStatement(sql);
         double t = (k*total+n)/(total+1);
+        t = (double) Math.round(t*100)/100;
         String insert = String.valueOf(t);
         String peoples = String.valueOf(total+1);
         ptmt.setString(1,insert);

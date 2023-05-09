@@ -28,6 +28,7 @@ public class addmovies {
     public JCheckBox box5;
     public JTextArea comment;
     public JButton button;
+    public JButton buttonp;
     public addmovies() throws Exception{
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection(url, user, pass);
@@ -88,6 +89,14 @@ public class addmovies {
                         System.out.println(f);
                     }
                 }
+                else {
+                    String moviename = name.getText();
+                    try {
+                        updateposters up = new updateposters(moviename);
+                    } catch (Exception f) {
+                        System.out.println(f);
+                    }
+                }
             }
         };
         label3 = new JLabel("Your Rating:");
@@ -121,7 +130,10 @@ public class addmovies {
         panel5.setSize(700,100);
         button = new JButton("Add");
         button.addActionListener(listener);
+        buttonp= new JButton("Update Posters");
+        buttonp.addActionListener(listener);
         panel5.add(button);
+        panel5.add(buttonp);
         frame.add(panel5);
     }
 }

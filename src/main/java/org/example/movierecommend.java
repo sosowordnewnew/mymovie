@@ -25,6 +25,7 @@ public class movierecommend {
         PreparedStatement ptmt = con.prepareStatement(sql);
         ResultSet rs = ptmt.executeQuery();
         double maxrate = 0.0;
+        double maxrating = 0.0;
         String rmoviename = "";
         String rmovietype = "";
         while (rs.next()){
@@ -36,6 +37,7 @@ public class movierecommend {
             double rates = typerate*0.3+rating*0.5+people*0.2;
             if (rates>maxrate) {
                 maxrate = rates;
+                maxrating = rating;
                 rmoviename = moviename;
                 rmovietype = movietype;
             }
@@ -56,7 +58,7 @@ public class movierecommend {
         panel2.setSize(500,100);
         panel2.add(label2);
         frame.add(panel2);
-        String lb3 = "Since it is a "+rmovietype+" with a high rate of "+maxrate+" and we believe you will enjoy this movie!";
+        String lb3 = "Since it is a "+rmovietype+" with a high rate of "+maxrating+" and we believe you will enjoy this movie!";
         label3 = new JLabel(lb3);
         label3.setSize(500,100);
         panel3 = new JPanel();
